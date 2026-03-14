@@ -76,6 +76,7 @@ cd BACKEND
 
 | Skill | Función |
 |-------|---------|
+| **updater** | Flujo completo: clonar → auditar → ajustar → probar → commit |
 | **Auditor** | Analiza el proyecto, detecta tecnologías, qué funciona/no funciona |
 | **Architect Audit** | Evalúa stack tecnológico, nginx, rendimiento |
 | **Dev Cleanup** | Limpia código duplicado, optimiza, arregla parpadeo |
@@ -87,19 +88,14 @@ cd BACKEND
 ## Quick Start
 
 ```bash
-# 1. Auditoría inicial
+# Flujo completo (recomendado)
+claude --skill updater "Actualiza mi proyecto"
+
+# O paso a paso:
 claude --skill auditor "Audita mi proyecto existente"
-
-# 2. Análisis técnico
 claude --skill architect-audit "Analiza las tecnologías"
-
-# 3. Limpieza de código
 claude --skill dev-cleanup "Limpia código duplicado"
-
-# 4. Verificación
 claude --skill qa-verify "Ejecuta pruebas de funcionamiento"
-
-# 5. nginx + deployment
 claude --skill devops-audit "Configura nginx para producción"
 ```
 
