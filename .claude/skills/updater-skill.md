@@ -20,19 +20,24 @@ Eres un **Project Updater**. Tu trabajo es:
 │                    FLUJO DE ACTUALIZACIÓN DE PROYECTO                       │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│ 1. PEDIR URL   2. CLONAR    3. DEVELOP   4. AUDITAR   5. AJUSTAR  6. PRUEBAS│
-│  ┌─────────┐  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌──────────┐ ┌─────────┐ │
-│  │ URL Repo │ →│git clone│ →│  Rama   │ →│Análisis │ →│Limpieza │ →│PLAYWRIGHT│
-│  │ GitHub   │  │         │ →│ develop │ │+System  │ │+Código   │ │Tests    │ │
-│  └─────────┘  └─────────┘ └─────────┘ └─────────┘ └──────────┘ └─────────┘ │
+│ 1. PEDIR URL   2. CLONAR    3. NUEVA RAMA   4. AUDITAR   5. AJUSTAR     │
+│  ┌─────────┐  ┌─────────┐ ┌─────────────┐ ┌─────────┐ ┌──────────┐      │
+│  │ URL Repo │ →│git clone│ →│ feature/    │ →│Análisis │ →│Limpieza │      │
+│  │ GitHub   │  │         │ │ audit-xxx   │ │+System  │ │+Código   │      │
+│  └─────────┘  └─────────┘ └─────────────┘ └─────────┘ └──────────┘      │
 │                                                            │                │
 │                                                            ▼                │
-│                                                    7. COMMIT + PUSH       │
-│                                                    ┌─────────────┐         │
-│                                                    │ git push    │         │
-│                                                    │ origin      │         │
-│                                                    │ develop     │         │
-│                                                    └─────────────┘         │
+│                                              6. PRUEBAS PLAYWRIGHT          │
+│                                              ┌─────────────────┐           │
+│                                              │ E2E + Responsive│           │
+│                                              └─────────────────┘           │
+│                                                            │                │
+│                                                            ▼                │
+│                                              7. COMMIT + PUSH             │
+│                                              ┌─────────────────┐           │
+│                                              │ git push origin │           │
+│                                              │ feature/audit-xxx          │
+│                                              └─────────────────┘           │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -63,17 +68,14 @@ git clone [URL_REPO]
 cd [NOMBRE_PROYECTO]
 ```
 
-### 2.2 Crear rama develop
+### 2.2 Crear rama nueva
 
 ```bash
-# Verificar si existe develop
-git branch -a
+# Crear rama con nombre descriptivo basado en la tarea
+# Ejemplos: feature/audit, refactor/cleanup, fix/responsive
 
-# Si no existe, crear develop desde main/master
-git checkout -b develop
-
-# Si existe, cambiar a develop
-git checkout develop
+git checkout -b feature/auditoria-[nombre-proyecto]
+# Ejemplo: feature/auditoria-ecommerce
 ```
 
 ### 2.3 Detectar tecnologías
@@ -306,8 +308,7 @@ gh pr create --title "feat: auditoría y ajustes" --body "Cambios realizados..."
 | Health check | ✅ |
 
 ## Rama actualizada
-- develop: ✅ lista para PR
-- Pull Request: https://github.com/usuario/proyecto/pull/new/develop
+- feature/auditoria-[nombre]: ✅ lista para PR
 ```
 
 ---
@@ -325,8 +326,8 @@ Tú: ✅ Clonando repositorio...
     git clone https://github.com/crlsquilumba/mi-proyecto-ecommerce
     cd mi-proyecto-ecommerce
 
-    🌿 Creando rama develop...
-    git checkout -b develop
+    🌿 Creando rama nueva...
+    git checkout -b feature/auditoria-ecommerce
 
     🔍 Analizando tecnologías...
     - Frontend: React + Vite + TypeScript + Tailwind
@@ -352,12 +353,12 @@ Tú: ✅ Clonando repositorio...
     - APIs responden ✅
     - Health check ✅
 
-    📤 Haciendo commit a develop...
+    📤 Haciendo commit...
     git add -A
     git commit -m "feat: auditoría, limpieza y estandarización"
-    git push origin develop
+    git push origin feature/auditoria-ecommerce
 
-    ✅ Proyecto actualizado! Rama develop lista para PR.
+    ✅ Listo! Rama feature/auditoria-ecommerce creada con PR pendiente.
 ```
 
 ---
@@ -368,25 +369,32 @@ Tú: ✅ Clonando repositorio...
 Siempre sigue el mismo orden:
 1. Pedir URL
 2. Clonar
-3. Crear/switch a rama **develop**
+3. Crear **rama nueva** con nombre descriptivo
 4. Auditar
 5. Ajustar
 6. Pruebas con **Playwright** (E2E + Responsive)
-7. Commit + Push a **develop**
+7. Commit + Push a la **rama nueva**
 
-### 2. NO PREGUNTES CÓMO DESPLEGAR
+### 2. NOMBRAMAJE DE RAMAS
+```
+feature/auditoria-[nombre-proyecto]
+refactor/limpieza-[nombre-proyecto]
+fix/parpadeo-[nombre-proyecto]
+```
+
+### 3. NO PREGUNTES CÓMO DESPLEGAR
 Una vez clonando, YA SABES:
 - React → `npm run dev`
 - Spring → `./mvnw spring-boot:run`
 
-### 3. SIEMPRE PRUEBA CON PLAYWRIGHT
+### 4. SIEMPRE PRUEBA CON PLAYWRIGHT
 - Tests E2E (homepage, navegación, console errors)
 - Tests Responsive (375px, 768px, 1024px, 1440px)
 - Tests API (health check, endpoints)
 
-### 4. NUNCA HACES COMMIT A MAIN
-- Siempre a **develop**
-- Crear PR desde develop a main
+### 5. NUNCA HACES COMMIT A MAIN
+- Siempre a **rama nueva** (feature/audit-xxx)
+- Crear PR desde la rama nueva a main
 
 ---
 
