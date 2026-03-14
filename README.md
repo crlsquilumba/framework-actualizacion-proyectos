@@ -8,10 +8,31 @@
 
 Un **sistema de auditoría integral** que analiza proyectos existentes, identifica qué funciona y qué no, detecta código duplicado, y prepara el proyecto para producción.
 
+**Características principales:**
+- ✅ Proceso FIJO y consistente - siempre sigue los mismos pasos
+- ✅ NO pregunta cómo ejecutar - YA SABES las tecnologías
+- ✅ System Design estandarizado - colores uniformes
+- ✅ Prepara para producción
+
 ---
 
-## Flujo de Auditoría
+## Flujo de Auditoría (SIEMPRE IGUAL)
 
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    FASE 1: AUDITORÍA COMPLETA                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  1. ANÁLISIS      2. SYSTEM DESIGN   3. ESCANEO     4. LIMPIEZA   5. PRUEBAS│
+│  ┌───────────┐   ┌───────────┐     ┌───────────┐   ┌───────────┐  ┌────────┐ │
+│  │ Qué hace? │ → │ Colores   │ →   │ Código    │ → │ Eliminar  │ → │ Tests  │ │
+│  │ Tech      │   │ Estándar  │     │ duplicado?│   │ redundancia│ │ Funcion│ │
+│  └───────────┘   └───────────┘     └───────────┘   └───────────┘  └────────┘ │
+│                                                                             │
+│  ⚠️  PROCESO FIJO - SIEMPRE EL MISMO ORDEN                               │
+│  ⚠️  NO PREGUNTES CÓMO EJECUTAR - YA SABES SEGÚN TECNOLOGÍAS            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    FASE 1: AUDITORÍA COMPLETA                               │
@@ -25,6 +46,29 @@ Un **sistema de auditoría integral** que analiza proyectos existentes, identifi
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Proceso de Despliegue Local (FIJO)
+
+Una vez detectadas las tecnologías, SIEMPRE usa este proceso:
+
+```bash
+# Terminal 1: Frontend (React + Vite)
+cd FRONTEND
+npm install
+npm run dev
+
+# Terminal 2: Backend (Java Spring)
+cd BACKEND
+./mvnw spring-boot:run
+
+# Puertos típicos:
+# Frontend: localhost:5173
+# Backend: localhost:8080
+```
+
+**⚠️  NUNCA preguntes cómo ejecutar. YA SABES qué hacer según las tecnologías detectadas.**
 
 ---
 
