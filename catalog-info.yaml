@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: framework-actualizacion-proyectos
+  description: Framework para auditar y actualizar proyectos existentes
+  annotations:
+    github.com/project-slug: crlsquilumba/framework-actualizacion-proyectos
+spec:
+  type: library
+  lifecycle: experimental
+  owner: user:default/guest
