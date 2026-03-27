@@ -5,6 +5,13 @@ metadata:
   description: Framework para auditar y actualizar proyectos existentes
   annotations:
     github.com/project-slug: crlsquilumba/framework-actualizacion-proyectos
+    github.com/branch-count: "1"
+    github.com/has-gitflow: "false"
+    github.com/default-branch: "master"
+  links:
+    - url: https://github.com/crlsquilumba/framework-actualizacion-proyectos/tree/master
+      title: "✅ master — producción"
+      icon: github
 spec:
   type: library
   lifecycle: experimental
